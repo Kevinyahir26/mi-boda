@@ -1,0 +1,6263 @@
+/* =========================================
+   VARIABLES
+========================================= */
+
+:root{
+
+    /*======================================================
+    =                   COLORES BASE
+    ======================================================*/
+
+    --white:#ffffff;
+    --black:#171412;
+
+    --cream:#f8f6ef;
+    --cream-dark:#eee9df;
+
+
+    /*======================================================
+    =           PALETA PRINCIPAL DE LA BODA
+    ======================================================*/
+
+    --navy:#1f3554;
+
+    --blue:#4d72a4;
+
+    --blue-soft:#6f8dbc;
+
+    --blue-light:#94b6df;
+
+    --blue-pastel:#b7cdea;
+
+    --gray-soft:#d9dde2;
+
+
+    /*======================================================
+    =              COLORES DE ACENTO
+    ======================================================*/
+
+    --gold:#b49a6a;
+
+
+    /*======================================================
+    =             COLORES SEMÁNTICOS
+    ======================================================*/
+
+    --color-title:var(--navy);
+
+    --color-text:var(--black);
+
+    --color-text-soft:#4b4b4b;
+
+    --color-icon:var(--blue-soft);
+
+    --color-button:var(--blue);
+
+    --color-button-hover:var(--navy);
+
+    --color-divider:var(--gray-soft);
+
+    --color-section:var(--cream);
+
+    --color-section-alt:var(--cream-dark);
+
+    --color-accent:var(--gold);
+
+
+    /*======================================================
+    =          COLORES LEGACY (NO ELIMINAR AÚN)
+    ======================================================*/
+
+    --brown:#5c493d;
+
+    --brown-dark:#342820;
+
+    --olive:#929675;
+
+    --olive-dark:#7f8564;
+
+    --pink:#e9b7c5;
+
+    --pink-light:#f7dfe6;
+
+    --pink-dark:#c98fa2;
+
+
+    /*======================================================
+    =                  TIPOGRAFÍAS
+    ======================================================*/
+
+    --font-title:
+        'Cormorant Garamond',
+        serif;
+
+    --font-script:
+        'Great Vibes',
+        cursive;
+
+    --font-body:
+        'Montserrat',
+        sans-serif;
+
+
+    /*======================================================
+    =                 TRANSICIONES
+    ======================================================*/
+
+    --transition-fast:.25s ease;
+
+    --transition:.35s ease;
+
+    --transition-slow:.6s ease;
+
+
+    /*======================================================
+    =               BORDES Y RADIOS
+    ======================================================*/
+
+    --radius-sm:10px;
+
+    --radius-md:18px;
+
+    --radius-lg:30px;
+
+    --radius-pill:999px;
+
+
+    /*======================================================
+    =                    SOMBRAS
+    ======================================================*/
+
+    --shadow-sm:0 6px 18px rgba(0,0,0,.06);
+
+    --shadow-md:0 12px 30px rgba(0,0,0,.10);
+
+    --shadow-lg:0 20px 45px rgba(0,0,0,.14);
+
+}
+
+
+/* =========================================
+   RESET
+========================================= */
+
+* {
+
+    margin: 0;
+
+    padding: 0;
+
+    box-sizing: border-box;
+
+}
+
+html,
+body{
+    width:100%;
+    max-width:100%;
+    overflow-x:hidden;
+}
+
+
+
+html {
+
+    scroll-behavior: smooth;
+
+}
+
+
+body {
+
+    background: var(--cream);
+
+    color: var(--brown);
+
+    font-family: var(--font-body);
+
+    overflow-x: hidden;
+
+}
+
+
+img {
+
+    width: 100%;
+
+    display: block;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+    color: inherit;
+
+}
+
+
+/* =========================================
+   LOADER
+========================================= */
+
+.loader {
+
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 9999;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            var(--pink-light) 0%,
+
+            var(--pink) 45%,
+
+            var(--pink-dark) 100%
+
+        );
+
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    opacity: 1;
+
+    visibility: visible;
+
+    transition:
+
+        opacity 1s ease,
+
+        visibility 1s ease;
+
+        /* Distancias PC */
+
+
+}
+
+
+.loader.hidden {
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+}
+
+
+.loader-content {
+
+    text-align:center;
+
+    color:var(--gold);
+
+    animation:loaderAnimation 3s ease-in-out infinite;
+
+    position:relative;
+
+    width:100%;
+
+    padding:20px;
+
+}
+
+
+/* =========================================
+   ANILLOS DE BODA DEL LOADER
+========================================= */
+
+
+.loader-rings{
+
+    position:relative;
+
+    width:190px;
+
+    height:120px;
+
+    margin:0 auto 35px;
+
+}
+
+
+/* Anillo principal */
+
+.loader-ring{
+
+    position:absolute;
+
+    width:95px;
+
+    height:95px;
+
+    border-radius:50%;
+
+
+    border:
+
+        3px solid
+
+        #c9a55b;
+
+
+    background:
+
+        transparent;
+
+
+    box-shadow:
+
+        0 0 8px rgba(201,165,91,.45),
+
+        inset 0 0 8px rgba(201,165,91,.25);
+
+
+}
+
+
+/* pequeño detalle metálico */
+
+.loader-ring::after{
+
+    content:"";
+
+
+    position:absolute;
+
+    width:18px;
+
+    height:18px;
+
+
+    border-radius:50%;
+
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            #fff4c7,
+
+            #c9a55b
+
+        );
+
+
+    top:-6px;
+
+    right:10px;
+
+
+    box-shadow:
+
+        0 0 10px rgba(255,230,150,.8);
+
+}
+
+
+
+/* primer anillo */
+
+.loader-ring-one{
+
+    left:35px;
+
+    top:10px;
+
+    transform:
+
+        rotate(-20deg);
+
+}
+
+
+
+/* segundo anillo */
+
+.loader-ring-two{
+
+    left:70px;
+
+    top:10px;
+
+    transform:
+
+        rotate(20deg);
+
+}
+
+
+
+/* brillo detrás */
+
+.loader-rings::after{
+
+
+    content:"";
+
+
+    position:absolute;
+
+
+    width:150px;
+
+    height:150px;
+
+
+    left:35px;
+
+    top:-15px;
+
+
+    background:
+
+        radial-gradient(
+
+            circle,
+
+            rgba(201,165,91,.28),
+
+            transparent 70%
+
+        );
+
+
+    filter:blur(15px);
+
+
+    animation:
+
+        ringGlow 3s infinite;
+
+
+}
+
+
+@keyframes ringGlow{
+
+
+    0%{
+
+        opacity:.4;
+
+        transform:scale(.8);
+
+    }
+
+
+    50%{
+
+        opacity:1;
+
+        transform:scale(1.15);
+
+    }
+
+
+    100%{
+
+        opacity:.4;
+
+        transform:scale(.8);
+
+    }
+
+}
+
+
+.loader-text {
+
+
+    font-family:
+
+        var(--font-script);
+
+
+    font-size:
+
+        clamp(42px,7vw,65px);
+
+
+    letter-spacing:
+
+        1px;
+
+
+    color:
+
+        #c9a55b;
+
+
+    line-height:
+
+        1.2;
+
+
+    text-shadow:
+
+
+        0 2px 4px rgba(80,50,20,.25),
+
+
+        0 0 12px rgba(201,165,91,.45);
+
+
+}
+
+
+.loader-line {
+
+    width: 80px;
+
+    height: 1px;
+
+    background:
+
+        rgba(255,255,255,.65);
+
+    margin:
+
+        25px auto 0;
+
+}
+
+
+@keyframes loaderAnimation {
+
+    0% {
+
+        opacity: .65;
+
+        transform:
+
+            translateY(0)
+
+            scale(.98);
+
+    }
+
+    50% {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(-5px)
+
+            scale(1);
+
+    }
+
+    100% {
+
+        opacity: .65;
+
+        transform:
+
+            translateY(0)
+
+            scale(.98);
+
+    }
+
+}
+
+
+/* =========================================
+   HERO / PORTADA
+========================================= */
+
+.hero {
+
+    position: relative;
+
+    min-height: 100vh;
+
+    height: 100svh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+.hero-background {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        url('../img/img1.jpg');
+
+    background-size: cover;
+
+    background-position: center;
+
+    transform: scale(1.05);
+
+    animation:
+
+        heroZoom
+
+        12s
+
+        ease-out
+
+        forwards;
+
+}
+
+
+@keyframes heroZoom {
+
+    from {
+
+        transform:
+
+            scale(1.08);
+
+    }
+
+    to {
+
+        transform:
+
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   CAPA OSCURA
+========================================= */
+
+.hero-overlay {
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        linear-gradient(
+
+            to bottom,
+
+            rgba(0,0,0,.22),
+
+            rgba(0,0,0,.38) 45%,
+
+            rgba(0,0,0,.68) 100%
+
+        );
+
+    z-index: 1;
+
+}
+
+
+/* =========================================
+   DEGRADADO PARA LEGIBILIDAD
+========================================= */
+
+.hero-gradient {
+
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 1;
+
+    background:
+
+        radial-gradient(
+
+            ellipse at center,
+
+            rgba(0,0,0,.05) 20%,
+
+            rgba(0,0,0,.25) 100%
+
+        );
+
+    pointer-events: none;
+
+}
+
+
+/* =========================================
+   CONTENIDO HERO
+========================================= */
+
+.hero-content {
+
+    position: relative;
+
+    z-index: 2;
+
+    color: white;
+
+    text-align: center;
+
+    padding:
+
+        30px
+
+        20px;
+
+    width: 100%;
+
+    animation:
+
+        heroContentAnimation
+
+        1.5s
+
+        ease
+
+        forwards;
+
+}
+
+
+@keyframes heroContentAnimation {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   TEXTO SUPERIOR
+========================================= */
+
+.hero-small-text {
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    letter-spacing: 5px;
+
+    margin-bottom: 30px;
+
+    text-shadow:
+
+        0 2px 8px
+
+        rgba(0,0,0,.6);
+
+}
+
+
+/* =========================================
+   NOMBRES
+========================================= */
+
+.couple-names {
+
+    font-family:
+
+        var(--font-title);
+
+    font-size:
+
+        clamp(
+
+            65px,
+
+            10vw,
+
+            150px
+
+        );
+
+    font-weight: 300;
+
+    line-height: .82;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+
+        0 3px 10px
+
+        rgba(0,0,0,.65),
+
+        0 0 25px
+
+        rgba(0,0,0,.25);
+
+}
+
+
+.couple-names span {
+
+    display: block;
+
+}
+
+
+/* =========================================
+   AMPERSAND
+========================================= */
+
+.couple-names .ampersand {
+
+    display: block;
+
+    font-family:
+
+        var(--font-script);
+
+    font-size:
+
+        clamp(
+
+            45px,
+
+            5vw,
+
+            70px
+
+        );
+
+    line-height: 1;
+
+    margin:
+
+        22px 0
+
+        15px;
+
+    text-shadow:
+
+        0 2px 8px
+
+        rgba(0,0,0,.7);
+
+}
+
+
+/* =========================================
+   SEPARADOR HERO
+========================================= */
+
+.hero-divider {
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 15px;
+
+    margin:
+
+        35px auto;
+
+    max-width: 300px;
+
+}
+
+
+.hero-divider span {
+
+    height: 1px;
+
+    width: 80px;
+
+    background:
+
+        rgba(255,255,255,.85);
+
+    box-shadow:
+
+        0 1px 5px
+
+        rgba(0,0,0,.5);
+
+}
+
+
+.hero-divider i {
+
+    font-style: normal;
+
+    font-size: 16px;
+
+    text-shadow:
+
+        0 2px 6px
+
+        rgba(0,0,0,.6);
+
+}
+
+
+/* =========================================
+   FECHA HERO
+========================================= */
+
+.wedding-date {
+
+    font-size: 14px;
+
+    font-weight: 500;
+
+    letter-spacing: 6px;
+
+    text-shadow:
+
+        0 2px 7px
+
+        rgba(0,0,0,.65);
+
+}
+
+
+/* =========================================
+   MENSAJE HERO
+========================================= */
+
+.hero-message {
+
+    margin-top: 15px;
+
+    font-family:
+
+        var(--font-title);
+
+    font-size: 30px;
+
+    font-weight: 500;
+
+    text-shadow:
+
+        0 2px 8px
+
+        rgba(0,0,0,.7);
+
+}
+
+
+/* =========================================
+   BOTÓN SCROLL
+========================================= */
+
+.scroll-button {
+
+    display: inline-flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-top: 45px;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    text-transform: uppercase;
+
+    text-shadow:
+
+        0 2px 6px
+
+        rgba(0,0,0,.8);
+
+}
+
+
+.scroll-button strong {
+
+    font-size: 24px;
+
+    font-weight: 300;
+
+    animation:
+
+        scrollArrow
+
+        1.5s
+
+        infinite;
+
+}
+
+
+@keyframes scrollArrow {
+
+    0% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+
+            translateY(8px);
+
+    }
+
+    100% {
+
+        transform:
+
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   GENERALES
+========================================= */
+
+.section-container {
+
+    width:
+
+        min(
+
+            1100px,
+
+            90%
+
+        );
+
+    margin: auto;
+
+}
+
+
+section {
+
+    padding:
+
+        120px
+
+        0;
+
+}
+
+
+.section-label {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-align: center;
+
+    margin-bottom: 20px;
+
+}
+
+
+.section-title {
+
+    font-family:
+
+        var(--font-title);
+
+    font-size:
+
+        clamp(
+
+            42px,
+
+            6vw,
+
+            70px
+
+        );
+
+    font-weight: 400;
+
+    text-align: center;
+
+    line-height: 1;
+
+}
+
+
+.gold-line {
+
+    width: 60px;
+
+    height: 1px;
+
+    background:
+
+        var(--gold);
+
+    margin:
+
+        30px auto
+
+        60px;
+
+}
+
+
+/* =========================================
+   INVITACIÓN + CUENTA REGRESIVA
+========================================= */
+
+.countdown-section{
+
+    background:var(--cream);
+
+    text-align:center;
+
+    padding:
+        90px
+        20px
+        0px;
+
+}   
+
+
+.invitation-container {
+
+    width:
+
+        min(
+
+            1000px,
+
+            92%
+
+        );
+
+    margin: auto;
+
+}
+
+
+/*=========================================
+=      HERRADURA DECORATIVA PREMIUM       =
+=========================================*/
+
+.horseshoe-decoration{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+.horseshoe-image{
+
+    width:220px;
+
+    max-width:90%;
+
+    height:auto;
+
+    user-select:none;
+
+    pointer-events:none;
+
+    filter:
+
+        drop-shadow(0 8px 18px rgba(181,150,90,.18));
+
+    transition:.45s ease;
+
+}
+
+.horseshoe-image:hover{
+
+    transform:scale(1.03);
+
+}
+
+
+/* =========================================
+   TÍTULO DE INVITACIÓN
+========================================= */
+
+.invitation-title {
+
+    font-family:
+
+        var(--font-script);
+
+    color:
+
+        #1f3554;
+
+    font-weight: 400;
+
+    font-size:
+
+        clamp(
+
+            48px,
+
+            5vw,
+
+            82px
+
+        );
+
+    line-height: 1.15;
+
+    margin:
+
+        0 auto
+
+        45px;
+
+    max-width: 900px;
+
+}
+
+
+/* =========================================
+   MES
+========================================= */
+
+.wedding-month {
+
+    font-family:
+
+        var(--font-title);
+
+    font-size:
+
+        clamp(
+
+            25px,
+
+            3vw,
+
+            40px
+
+        );
+
+    font-weight: 600;
+
+    color:
+
+        #1f3554;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 30px;
+
+}
+
+
+/* =========================================
+   DISTRIBUCIÓN DE FECHA
+========================================= */
+
+.date-layout {
+
+    width:
+
+        min(
+
+            900px,
+
+            100%
+
+        );
+
+    margin:
+
+        0 auto
+
+        65px;
+
+    display: grid;
+
+    grid-template-columns:
+
+        1fr
+
+        auto
+
+        1fr;
+
+    align-items: center;
+
+    gap: 50px;
+
+}
+
+
+/* =========================================
+   LADOS DE FECHA
+========================================= */
+
+.date-side {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    gap: 18px;
+
+}
+
+
+.date-side span {
+
+    font-family:
+
+        var(--font-title);
+
+    color:
+
+        #1f3554;
+
+    font-size:
+
+        clamp(
+
+            20px,
+
+            2.5vw,
+
+            32px
+
+        );
+
+    letter-spacing: 2px;
+
+}
+
+
+.date-line {
+
+    width: 100%;
+
+    max-width: 260px;
+
+    height: 2px;
+
+    background:
+
+        #1f3554;
+
+}
+
+
+/* =========================================
+   NÚMERO PRINCIPAL
+========================================= */
+
+.date-number {
+
+    font-family:
+
+        var(--font-title);
+
+    font-size:
+
+        clamp(
+
+            80px,
+
+            10vw,
+
+            145px
+
+        );
+
+    font-weight: 400;
+
+    line-height: .8;
+
+    color:
+
+       #1f3554;
+
+}
+
+
+/* =========================================
+   CONTADOR
+========================================= */
+
+.countdown-wrapper {
+
+    margin-top: 20px;
+
+}
+
+
+.countdown-title {
+
+    font-family:
+
+        var(--font-script);
+
+    color:
+
+        #1f3554;
+
+    font-size:
+
+        clamp(
+
+            48px,
+
+            6vw,
+
+            80px
+
+        );
+
+    margin-bottom: 35px;
+
+}
+
+
+/* =========================================
+   CONTENEDOR DEL CONTADOR
+========================================= */
+
+.countdown {
+
+    display: grid;
+
+    grid-template-columns:
+
+        repeat(
+
+            4,
+
+            1fr
+
+        );
+
+    max-width: 900px;
+
+    margin: auto;
+
+    gap: 25px;
+
+}
+
+
+/* =========================================
+   ELEMENTOS CONTADOR
+========================================= */
+
+.countdown-item {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 0;
+
+}
+
+
+/* =========================================
+   NÚMEROS
+========================================= */
+
+.count-number {
+
+    font-family:
+
+        var(--font-title);
+
+    font-size:
+
+        clamp(
+
+            50px,
+
+            7vw,
+
+            90px
+
+        );
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    color:
+
+        #1f3554;
+
+    letter-spacing: 2px;
+
+}
+
+
+/* =========================================
+   ETIQUETAS
+========================================= */
+
+.count-label {
+
+    margin-top: 12px;
+
+    font-family:
+
+        var(--font-title);
+
+    font-size:
+
+        clamp(
+
+            11px,
+
+            1.5vw,
+
+            17px
+
+        );
+
+    color:
+
+        var(--black);
+
+    letter-spacing: 2px;
+
+    font-weight: 500;
+
+}
+
+
+
+
+/* ==================================================
+   LOADER BODA PREMIUM RESPONSIVE
+================================================== */
+
+/* =========================
+   ESCENA PRINCIPAL
+========================= */
+
+.wedding-loader-scene {
+
+    position: relative;
+
+    margin: 35px auto 0;
+
+    width: min(560px, 95vw);
+
+    aspect-ratio: 16 / 7;
+
+    --road-width: 88%;
+
+}
+
+
+/* =========================
+   CAMINO
+========================= */
+
+.loader-road {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 22px;
+
+    transform: translateX(-50%);
+
+    width: var(--road-width);
+
+    height: 6px;
+
+    background: rgba(180, 154, 106, .35);
+
+    border-radius: 50px;
+
+    overflow: hidden;
+
+}
+
+
+.loader-road-fill {
+
+    width: 0;
+
+    height: 100%;
+
+    background:
+
+        linear-gradient(
+            90deg,
+            #b49a6a,
+            #fff0b0,
+            #b49a6a
+        );
+
+    border-radius: 50px;
+
+    animation:
+
+        roadLoading
+
+        6s
+
+        linear
+
+        forwards;
+
+}
+
+
+@keyframes roadLoading {
+
+    from {
+
+        width: 0;
+
+    }
+
+    to {
+
+        width: 100%;
+
+    }
+
+}
+
+
+/* =========================
+   PERSONAJES
+========================= */
+
+.loader-character {
+
+    position: absolute;
+
+    width: 130px;
+
+    height: auto;
+
+    user-select: none;
+
+    pointer-events: none;
+
+    z-index: 5;
+
+    will-change: left, right;
+
+}
+
+
+/* =========================
+   NOVIA
+========================= */
+
+.bride {
+
+    left: 0;
+
+    bottom: -5px;
+
+    animation:
+
+        brideWalk
+
+        6s
+
+        ease-in-out
+
+        forwards;
+
+}
+
+
+/* =========================
+   NOVIO
+========================= */
+
+.groom {
+
+    right: 0;
+
+    bottom: 2px;
+
+    animation:
+
+        groomWalk
+
+        6s
+
+        ease-in-out
+
+        forwards;
+
+}
+
+
+/* =========================
+   ANIMACIÓN NOVIA
+========================= */
+
+@keyframes brideWalk {
+
+    0% {
+
+        left: 0;
+
+    }
+
+    72% {
+
+        left: calc(50% - 130px + 41px);
+
+    }
+
+    100% {
+
+        left: calc(50% - 130px + 41px);
+
+    }
+
+}
+
+
+/* =========================
+   ANIMACIÓN NOVIO
+========================= */
+
+@keyframes groomWalk {
+
+    0% {
+
+        right: 0;
+
+    }
+
+    72% {
+
+        right: calc(50% - 130px + 41px);
+
+    }
+
+    100% {
+
+        right: calc(50% - 130px + 41px);
+
+    }
+
+}
+
+
+/* =========================
+   PUNTO DE ENCUENTRO
+========================= */
+
+.meeting-point {
+
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 90px;
+
+    transform: translateX(-50%);
+
+    width: 0;
+
+    height: 0;
+
+    pointer-events: none;
+
+    z-index: 20;
+
+}
+
+
+/* =========================
+   CORAZÓN
+========================= */
+
+.loader-heart {
+
+    position: absolute;
+
+    left: 50%;
+
+    top: 0;
+
+    transform:
+
+        translate(-50%, -50%)
+
+        scale(0);
+
+    font-size: 42px;
+
+    color: #ea0e45;
+
+    opacity: 0;
+
+    text-shadow:
+
+        0 0 10px rgba(216, 154, 170, .5),
+
+        0 0 25px rgba(255, 230, 200, .6);
+
+    animation:
+
+        heartFinal
+
+        7s
+
+        ease
+
+        forwards;
+
+}
+
+
+/* =========================================
+   ÚLTIMO LATIDO
+========================================= */
+
+.loader-heart.final-beat{
+
+    animation:
+        finalHeartBeat .8s ease;
+
+}
+
+
+/* =========================
+   CORAZÓN APARECE Y LATE
+========================= */
+
+@keyframes heartFinal {
+
+    0%,
+    80% {
+
+        opacity: 0;
+
+        transform:
+
+            translate(-50%, -50%)
+
+            scale(.15);
+
+    }
+
+    84% {
+
+        opacity: 1;
+
+        transform:
+
+            translate(-50%, -50%)
+
+            scale(1);
+
+    }
+
+    90% {
+
+        transform:
+
+            translate(-50%, -50%)
+
+            scale(1.28);
+
+    }
+
+    95% {
+
+        transform:
+
+            translate(-50%, -50%)
+
+            scale(1);
+
+    }
+
+    99% {
+
+        transform:
+
+            translate(-50%, -50%)
+
+            scale(1.22);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+
+            translate(-50%, -50%)
+
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   LATIDO FINAL
+========================================= */
+
+@keyframes finalHeartBeat{
+
+    0%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+    18%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.45);
+
+    }
+
+    35%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(.92);
+
+    }
+
+    55%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.28);
+
+    }
+
+    75%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(.98);
+
+    }
+
+    100%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+
+    }
+
+}
+
+
+/* ==================================================
+   TABLET Y MÓVIL
+================================================== */
+
+@media (max-width: 768px) {
+
+    .wedding-loader-scene {
+
+        width: 95vw;
+
+        margin-top: 25px;
+
+    }
+
+
+    .loader-road {
+
+        width: 92%;
+
+    }
+
+
+    .loader-character {
+
+        width: 22%;
+
+    }
+
+
+    /* =========================
+       NOVIA
+    ========================= */
+
+    .bride {
+
+        left: 0;
+
+        bottom: -5px;
+
+    }
+
+
+    /* =========================
+       NOVIO
+    ========================= */
+
+    .groom {
+
+        right: 0;
+
+        bottom: 2px;
+
+    }
+
+
+    /* =========================
+       ANIMACIÓN NOVIA TABLET
+    ========================= */
+
+    @keyframes brideWalk {
+
+        0% {
+
+            left: 0;
+
+        }
+
+        72% {
+
+            left: calc(50% - 22%);
+
+        }
+
+        100% {
+
+            left: calc(50% - 22%);
+
+        }
+
+    }
+
+
+    /* =========================
+       ANIMACIÓN NOVIO TABLET
+    ========================= */
+
+    @keyframes groomWalk {
+
+        0% {
+
+            right: 0;
+
+        }
+
+        72% {
+
+            right: calc(50% - 22%);
+
+        }
+
+        100% {
+
+            right: calc(50% - 22%);
+
+        }
+
+    }
+
+
+    /* =========================
+       ANILLOS
+    ========================= */
+
+    .loader-rings {
+
+        width: 160px;
+
+        height: 105px;
+
+        margin-bottom: 25px;
+
+    }
+
+
+    .loader-ring {
+
+        width: 80px;
+
+        height: 80px;
+
+    }
+
+
+    .loader-ring-one {
+
+        left: 30px;
+
+    }
+
+
+    .loader-ring-two {
+
+        left: 60px;
+
+    }
+
+
+    /* =========================
+       TEXTO
+    ========================= */
+
+    .loader-text {
+
+        font-size: 28px;
+
+    }
+
+}
+
+
+/* ==================================================
+   MÓVILES PEQUEÑOS
+================================================== */
+
+@media (max-width: 480px) {
+
+    .wedding-loader-scene {
+
+        width: 96vw;
+
+    }
+
+
+    .loader-road {
+
+        bottom: 18px;
+
+    }
+
+
+    .loader-character {
+
+        width: 82px;
+
+    }
+
+
+    /* =========================
+       NOVIA
+    ========================= */
+
+    .bride {
+
+        left: 5px;
+
+        bottom: 3px;
+
+    }
+
+
+    /* =========================
+       NOVIO
+    ========================= */
+
+    .groom {
+
+        right: 5px;
+
+        bottom: 8px;
+
+    }
+
+
+
+
+
+    /* =========================
+       PUNTO DE ENCUENTRO
+    ========================= */
+
+    .meeting-point {
+
+        bottom: 15vw;
+
+    }
+
+
+    /* =========================
+       CORAZÓN
+    ========================= */
+
+    .loader-heart {
+
+        font-size: 22px;
+
+    }
+
+}
+
+
+
+
+/* ==================================================
+   AJUSTES FINOS DE POSICIÓN DEL LOADER EN MÓVILES
+================================================== */
+
+
+/* =========================================
+   CELULARES PEQUEÑOS
+   320px - 375px
+========================================= */
+
+@media (max-width: 375px) {
+
+    .meeting-point {
+
+        bottom: 17vw;
+
+    }
+
+    @keyframes brideWalk {
+
+        0% {
+
+            left: 5px;
+
+        }
+
+        72% {
+
+            left:
+                calc(
+                    50% - 82px + 7vw
+                );
+
+        }
+
+        100% {
+
+            left:
+                calc(
+                    50% - 82px + 7vw
+                );
+
+        }
+
+    }
+
+
+    @keyframes groomWalk {
+
+        0% {
+
+            right: 5px;
+
+        }
+
+        72% {
+
+            right:
+                calc(
+                    50% - 82px + 7vw
+                );
+
+        }
+
+        100% {
+
+            right:
+                calc(
+                    50% - 82px + 7vw
+                );
+
+        }
+
+    }
+
+}
+
+
+
+/* =========================================
+   CELULARES MEDIANOS
+   376px - 414px
+========================================= */
+
+@media (min-width: 376px) and (max-width: 414px) {
+
+    .meeting-point {
+
+        bottom: 17vw;
+
+    }
+
+    @keyframes brideWalk {
+
+        0% {
+
+            left: 5px;
+
+        }
+
+        72% {
+
+            left:
+                calc(
+                    50% - 82px + 6.5vw
+                );
+
+        }
+
+        100% {
+
+            left:
+                calc(
+                    50% - 82px + 6.5vw
+                );
+
+        }
+
+    }
+
+
+    @keyframes groomWalk {
+
+        0% {
+
+            right: 5px;
+
+        }
+
+        72% {
+
+            right:
+                calc(
+                    50% - 82px + 6.5vw
+                );
+
+        }
+
+        100% {
+
+            right:
+                calc(
+                    50% - 82px + 6.5vw
+                );
+
+        }
+
+    }
+
+}
+
+
+
+
+/* =========================================
+   CELULARES GRANDES
+   415px - 480px
+========================================= */
+
+@media (min-width: 415px) and (max-width: 480px) {
+
+    @keyframes brideWalk {
+
+        0% {
+
+            left: 5px;
+
+        }
+
+        72% {
+
+            left:
+                calc(
+                    50% - 82px + 6.1vw
+                );
+
+        }
+
+        100% {
+
+            left:
+                calc(
+                    50% - 82px + 6.1vw
+                );
+
+        }
+
+    }
+
+
+    @keyframes groomWalk {
+
+        0% {
+
+            right: 5px;
+
+        }
+
+        72% {
+
+            right:
+                calc(
+                    50% - 82px + 6.1vw
+                );
+
+        }
+
+        100% {
+
+            right:
+                calc(
+                    50% - 82px + 6.1vw
+                );
+
+        }
+
+    }
+
+}
+
+
+
+
+/* =========================================
+   PANTALLAS PEQUEÑAS DE PC / TABLET
+   481px - 768px
+========================================= */
+
+@media (min-width: 481px) and (max-width: 768px) {
+
+    .meeting-point {
+
+        bottom: 15vw;
+
+    }
+
+    @keyframes brideWalk {
+
+        0% {
+
+            left: 0;
+
+        }
+
+        72% {
+
+            left:
+                calc(
+                    50% - 22% + 6.3vw
+                );
+
+        }
+
+        100% {
+
+            left:
+                calc(
+                    50% - 22% + 6.3vw
+                );
+
+        }
+
+    }
+
+
+    @keyframes groomWalk {
+
+        0% {
+
+            right: 0;
+
+        }
+
+        72% {
+
+            right:
+                calc(
+                    50% - 22% + 6.3vw
+                );
+
+        }
+
+        100% {
+
+            right:
+                calc(
+                    50% - 22% + 6.3vw
+                );
+
+        }
+
+    }
+
+}
+
+
+
+
+
+/* =========================================
+   AVISO DE ORIENTACIÓN
+========================================= */
+
+#rotate-device{
+
+    display:none;
+
+    position:fixed;
+
+    inset:0;
+
+    background:var(--cream);
+
+    z-index:100000;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    text-align:center;
+
+}
+
+.rotate-box{
+
+    max-width:320px;
+
+}
+
+.rotate-icon{
+
+    font-size:70px;
+
+    margin-bottom:20px;
+
+    animation:rotatePhone 1.5s ease-in-out infinite;
+
+}
+
+.rotate-box h2{
+
+    font-family:var(--font-title);
+
+    font-size:34px;
+
+    color:var(--brown);
+
+    margin-bottom:15px;
+
+}
+
+.rotate-box p{
+
+    font-size:16px;
+
+    line-height:1.6;
+
+    color:var(--brown);
+
+}
+
+@keyframes rotatePhone{
+
+    0%{
+
+        transform:rotate(0deg);
+
+    }
+
+    50%{
+
+        transform:rotate(90deg);
+
+    }
+
+    100%{
+
+        transform:rotate(0deg);
+
+    }
+
+}
+
+/* Solo celulares en horizontal */
+
+@media screen and (max-width:932px) and (orientation:landscape){
+
+    #rotate-device{
+
+        display:flex;
+
+    }
+
+    body{
+
+        overflow:hidden;
+
+    }
+
+}
+
+
+
+
+
+/* =========================================
+   PANTALLA DE INICIO
+========================================= */
+
+.loader-start-screen{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:30px;
+
+    text-align:center;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    transition:
+        opacity .8s ease,
+        visibility .8s ease;
+
+}
+
+
+
+/* Overlay de toda la pantalla */
+
+.loader-start-screen::before{
+
+    content:"";
+
+    position:fixed;
+
+    inset:0;
+
+    background:
+
+        radial-gradient(
+
+            circle at center,
+
+            rgba(0,0,0,.18) 0%,
+
+            rgba(0,0,0,.35) 55%,
+
+            rgba(0,0,0,.55) 100%
+
+        );
+
+    opacity:0;
+
+    transition:opacity .8s ease;
+
+}
+
+
+/* Contenido */
+
+.loader-start-content{
+
+    position:relative;
+
+    z-index:5;
+
+    width:min(520px,92vw);
+
+    padding:30px 25px;
+
+    transform:translateY(25px);
+
+    opacity:0;
+
+    transition:
+
+        opacity .8s ease,
+
+        transform .8s ease;
+
+}
+
+
+/* Mostrar */
+
+.loader-start-screen.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+.loader-start-screen.show::before{
+
+    opacity:1;
+
+}
+
+
+.loader-start-screen.show .loader-start-content{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+
+/* =========================================
+   APARICIÓN DEL MENSAJE
+========================================= */
+
+@keyframes startFade{
+
+    from{
+
+        opacity:0;
+
+        filter:blur(12px);
+
+        transform:
+
+            scale(.96);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        filter:blur(0);
+
+        transform:
+
+            scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   CONTENIDO
+========================================= */
+
+.loader-start-content{
+
+    padding:30px;
+
+    animation:startMessageFloat 3s ease-in-out infinite;
+
+}
+
+
+/* =========================================
+   CORAZÓN
+========================================= */
+
+.loader-start-heart{
+
+    font-size:34px;
+
+    color:#ea0e45;
+
+    margin-bottom:18px;
+
+    animation:
+        startHeartBeat 1.8s ease-in-out infinite;
+
+    text-shadow:
+
+    0 0 10px rgba(255,255,255,.65),
+
+    0 0 22px rgba(233,183,197,.55),
+
+    0 0 35px rgba(180,154,106,.45);
+
+}
+
+
+/* =========================================
+   TÍTULO
+========================================= */
+
+.loader-start-content h2{
+
+    margin:20px 0 15px;
+
+    font-family:var(--font-title);
+
+    font-size:clamp(38px,5vw,56px);
+
+    font-weight:600;
+
+    color:#ffffff;
+
+    /* Contorno elegante */
+    -webkit-text-stroke: .5px rgba(90,55,65,.85);
+
+    line-height:1.15;
+
+    text-shadow:
+
+        0 2px 4px rgba(0,0,0,.45),
+
+        0 4px 12px rgba(0,0,0,.40),
+
+        0 8px 24px rgba(0,0,0,.30),
+
+        0 0 30px rgba(255,255,255,.15),
+
+        0 0 50px rgba(180,154,106,.25);
+
+}
+
+
+/* =========================================
+   SUBTÍTULO
+========================================= */
+
+.loader-start-content p{
+
+    margin:0;
+
+    font-family:var(--font-body);
+
+    font-size:17px;
+
+    font-weight:500;
+
+    letter-spacing:2px;
+
+    color:rgba(255,255,255,.98);
+
+    -webkit-text-stroke: .4px rgba(90,55,65,.75);
+
+    text-shadow:
+
+        0 2px 6px rgba(0,0,0,.55),
+
+        0 4px 12px rgba(0,0,0,.35);
+
+}
+
+
+
+
+
+/* =========================================
+   FLOTACIÓN SUAVE
+========================================= */
+
+@keyframes startMessageFloat{
+
+    0%{
+
+        transform:
+            translateY(0);
+
+    }
+
+    50%{
+
+        transform:
+            translateY(-6px);
+
+    }
+
+    100%{
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   LATIDO DEL CORAZÓN
+========================================= */
+
+@keyframes startHeartBeat{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    20%{
+
+        transform:scale(1.22);
+
+    }
+
+    40%{
+
+        transform:scale(1);
+
+    }
+
+    60%{
+
+        transform:scale(1.18);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+/* =========================================
+   ONDA DEL TOQUE PREMIUM
+========================================= */
+
+.loader-ripple{
+
+    position:fixed;
+
+    width:22px;
+
+    height:22px;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:100001;
+
+    transform:
+        translate(-50%,-50%)
+        scale(.2);
+
+    animation:
+        rippleEffect .9s ease-out forwards;
+
+    border:2px solid var(--gold);
+
+    box-shadow:
+
+        0 0 12px rgba(180,154,106,.75),
+
+        0 0 24px rgba(233,183,197,.45),
+
+        inset 0 0 10px rgba(247,223,230,.45);
+
+}
+
+
+/* Segunda onda */
+
+.loader-ripple::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-2px;
+
+    border-radius:50%;
+
+    border:2px solid var(--pink);
+
+    opacity:.8;
+
+    animation:
+
+        rippleEffect 1s ease-out .12s forwards;
+
+    box-shadow:
+
+        0 0 18px rgba(233,183,197,.75);
+
+}
+
+
+/* =========================================
+   DESTELLO CENTRAL
+========================================= */
+
+.loader-ripple::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    width:14px;
+
+    height:14px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+
+        circle,
+
+        #fffdf6 0%,
+
+        #ffe7b0 35%,
+
+        var(--gold) 70%,
+
+        transparent 100%
+
+    );
+
+    transform:
+
+        translate(-50%,-50%);
+
+    box-shadow:
+
+        0 0 18px rgba(255,255,255,.95),
+
+        0 0 30px rgba(180,154,106,.8),
+
+        0 0 45px rgba(233,183,197,.6);
+
+    animation:
+
+        flashEffect .55s ease-out forwards;
+
+}
+
+
+/* =========================================
+   ANIMACIÓN DE LA ONDA
+========================================= */
+
+@keyframes rippleEffect{
+
+    from{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.2);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(18);
+
+    }
+
+}
+
+
+/* =========================================
+   DESTELLO
+========================================= */
+
+@keyframes flashEffect{
+
+    from{
+
+        opacity:1;
+
+        transform:
+            translate(-50%,-50%)
+            scale(.5);
+
+    }
+
+    to{
+
+        opacity:0;
+
+        transform:
+            translate(-50%,-50%)
+            scale(4);
+
+    }
+
+}
+
+/* =========================================
+   RESPLANDOR DEL LOADER
+========================================= */
+
+.loader-awake{
+
+    animation:
+        loaderAwake .65s ease-out forwards;
+
+}
+
+@keyframes loaderAwake{
+
+    0%{
+
+        box-shadow:
+
+            inset 0 0 0 rgba(255,255,255,0);
+
+        filter:
+            brightness(1);
+
+    }
+
+    25%{
+
+        box-shadow:
+
+            inset 0 0 180px rgba(255,240,210,.20);
+
+        filter:
+            brightness(1.08);
+
+    }
+
+    50%{
+
+        box-shadow:
+
+            inset 0 0 250px rgba(233,183,197,.18);
+
+        filter:
+            brightness(1.12);
+
+    }
+
+    100%{
+
+        box-shadow:
+
+            inset 0 0 0 rgba(255,255,255,0);
+
+        filter:
+            brightness(1);
+
+    }
+
+}
+
+
+/* =========================================
+   ESCENA EN ESPERA
+========================================= */
+
+.loader-waiting .loader-rings,
+.loader-waiting .loader-title,
+.loader-waiting .loader-subtitle,
+.loader-waiting .loader-text,
+.loader-waiting .wedding-loader-scene{
+
+    filter:
+        blur(6px)
+        brightness(.65)
+        saturate(.85);
+
+    transition:
+        filter .8s ease;
+
+}
+
+
+
+
+/*======================================================
+=                     EVENTOS
+======================================================*/
+
+.events{
+
+    width:min(100%,900px);
+
+    margin:0 auto;
+
+    padding:90px 20px;
+
+    background:var(--cream);
+
+}
+
+.event-card{
+
+    width:min(100%,900px);
+
+    margin:0 auto;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    text-align:center;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.event-icon{
+
+    width:clamp(90px,14vw,140px);
+
+    margin-bottom:18px;
+
+    color:var(--blue-soft);
+
+}
+
+.event-icon svg{
+
+    width:100%;
+
+    height:auto;
+
+    display:block;
+
+}
+
+.event-title{
+
+    margin:0;
+
+    font-family:var(--font-script);
+
+    font-size:clamp(3rem,7vw,5rem);
+
+    font-weight:400;
+
+    color:var(--navy);
+
+    line-height:1.1;
+
+}   
+
+.event-time{
+
+    margin-top:45px;
+
+    margin-bottom:15px;
+
+    font-family:var(--font-title);
+
+    font-size:clamp(2rem,4vw,3rem);
+
+    font-weight:600;
+
+    color:var(--black);
+
+    line-height:1.3;
+
+}
+
+.event-address{
+
+    max-width:700px;
+
+    margin:0;
+
+    font-family:var(--font-title);
+
+    font-size:clamp(1.7rem,3vw,2.6rem);
+
+    font-weight:500;
+
+    color:#4b4b4b;
+
+    line-height:1.45;
+
+    text-wrap:balance;
+
+}
+
+/*======================================================
+=                BOTÓN DEL EVENTO
+======================================================*/
+
+.event-button{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:45px;
+
+    padding:16px 34px;
+
+    border:2px solid var(--blue);
+
+    border-radius:999px;
+
+    background:white;
+
+    color:var(--blue);
+
+    font-family:var(--font-body);
+
+    font-size:clamp(.95rem,2vw,1.05rem);
+
+    font-weight:600;
+
+    letter-spacing:.15em;
+
+    text-transform:uppercase;
+
+    text-decoration:none;
+
+    transition:.35s;
+
+}
+
+.event-button-icon{
+
+    font-size:1.2em;
+
+    line-height:1;
+
+}
+
+.event-button:hover{
+
+    background:var(--blue);
+
+    color:white;
+
+    transform:translateY(-4px);
+
+    box-shadow:0 12px 30px rgba(77,114,164,.25);
+
+}
+
+.event-button:active{
+
+    transform:scale(.96);
+
+}
+
+.event-button:focus-visible{
+
+    outline:2px solid var(--gold);
+
+    outline-offset:5px;
+
+}
+
+
+
+/*======================================================
+=            ANIMACIÓN AL HACER SCROLL
+======================================================*/
+
+.reveal-item{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+        opacity .9s ease,
+        transform .9s cubic-bezier(.22,1,.36,1);
+
+    will-change:transform,opacity;
+
+}
+
+.reveal.visible .reveal-item{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Retraso entre elementos */
+
+.reveal.visible .reveal-item:nth-child(1){
+
+    transition-delay:.10s;
+
+}
+
+.reveal.visible .reveal-item:nth-child(2){
+
+    transition-delay:.28s;
+
+}
+
+.reveal.visible .reveal-item:nth-child(3){
+
+    transition-delay:.46s;
+
+}
+
+.reveal.visible .reveal-item:nth-child(4){
+
+    transition-delay:.64s;
+
+}
+
+.reveal.visible .reveal-item:nth-child(5){
+
+    transition-delay:.82s;
+
+}
+
+
+
+
+/*======================================================
+=            DIVISOR ENTRE SECCIONES
+======================================================*/
+
+.section-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:22px;
+
+    width:min(92%,700px);
+
+    margin:50px auto -60px;
+
+    color:var(--blue-soft);
+
+}
+
+.section-divider span{
+
+    flex:1;
+
+    height:1px;
+
+    background:var(--gray-soft);
+
+}
+
+.divider-icon{
+
+    width:clamp(70px,12vw,110px);
+
+    height:auto;
+
+    flex-shrink:0;
+
+}
+
+
+
+
+
+
+
+/*==========================================
+=          CÓDIGO DE VESTIMENTA            =
+==========================================*/
+
+.dress-code{
+
+    position:relative;
+
+    overflow:hidden;
+
+    padding:120px 20px;
+
+    background:var(--cream);
+
+}
+
+.dress-container{
+
+    position:relative;
+
+    width:min(100%,900px);
+
+    margin:auto;
+
+    text-align:center;
+
+    z-index:2;
+
+}
+
+/*==============================
+=           FLORES             =
+==============================*/
+
+.dress-code::before,
+.dress-code::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+
+    height:240px;
+
+    background-repeat:no-repeat;
+
+    background-size:contain;
+
+    opacity:.35;
+
+    pointer-events:none;
+
+}
+
+.dress-code::before{
+
+    top:0;
+
+    left:0;
+
+    background-image:url("img/leaf-left.png");
+
+}
+
+.dress-code::after{
+
+    right:0;
+
+    bottom:0;
+
+    background-image:url("img/leaf-right.png");
+
+}
+
+/*==============================
+=          TITULOS             =
+==============================*/
+
+.dress-subtitle{
+
+    font-family:var(--font-script);
+
+    font-size:clamp(2.5rem,5vw,4.5rem);
+
+    color:var(--gold);
+
+    line-height:1;
+
+}
+
+.dress-title{
+
+    margin-top:10px;
+
+    font-family:var(--font-title);
+
+    font-size:clamp(2.3rem,5vw,4rem);
+
+    letter-spacing:8px;
+
+    color:var(--navy);
+
+}
+
+.dress-divider{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+    margin:28px auto;
+
+}
+
+.dress-divider span{
+
+    width:80px;
+
+    height:1px;
+
+    background:var(--gold);
+
+}
+
+.dress-divider i{
+
+    color:var(--gold);
+
+    font-size:.9rem;
+
+}
+
+.dress-type{
+
+    font-family:var(--font-body);
+
+    text-transform:uppercase;
+
+    letter-spacing:8px;
+
+    color:var(--gold);
+
+    font-size:.95rem;
+
+}
+
+/*==============================
+=        IMAGEN NOVIOS         =
+==============================*/
+
+.dress-image{
+
+    margin-top:60px;
+
+    position:relative;
+
+}
+
+.dress-image::before{
+
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    width:70%;
+
+    aspect-ratio:1;
+
+    background:radial-gradient(circle,
+                rgba(183,205,234,.55),
+                transparent 70%);
+
+    filter:blur(30px);
+
+    z-index:0;
+
+}
+
+.dress-image img{
+
+    position:relative;
+
+    width:min(100%,420px);
+
+    display:block;
+
+    margin:auto;
+
+    z-index:2;
+
+}
+
+/*==============================
+=          AVISO              =
+==============================*/
+
+.dress-warning{
+
+    margin:60px auto 0;
+
+    width:min(100%,520px);
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    padding:22px 28px;
+
+    border:1px solid rgba(180,154,106,.35);
+
+    border-radius:18px;
+
+    background:rgba(183,205,234,.18);
+
+    backdrop-filter:blur(8px);
+
+}
+
+.warning-icon{
+
+    flex-shrink:0;
+
+}
+
+.warning-icon i{
+
+    font-size:2rem;
+
+    color:var(--gold);
+
+}
+
+.warning-text{
+
+    text-align:left;
+
+}
+
+.warning-text h3{
+
+    font-family:var(--font-title);
+
+    color:var(--navy);
+
+    font-size:1.45rem;
+
+    margin-bottom:6px;
+
+}
+
+.warning-text p{
+
+    color:var(--brown);
+
+    line-height:1.6;
+
+}
+
+/*==============================
+=       PALETA COLORES         =
+==============================*/
+
+.dress-palette{
+
+    margin-top:70px;
+
+}
+
+.palette-title{
+
+    font-family:var(--font-title);
+
+    color:var(--navy);
+
+    font-size:1.4rem;
+
+    margin-bottom:35px;
+
+}
+
+.palette-colors{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-wrap:wrap;
+
+    gap:22px;
+
+}
+
+.color{
+
+    width:62px;
+
+    aspect-ratio:1;
+
+    border-radius:50%;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+}
+
+.color:hover{
+
+    transform:translateY(-8px);
+
+}
+
+/* Tus colores */
+
+.color-1{background:#1f3554;}
+
+.color-2{background:#4d72a4;}
+
+.color-3{background:#6f8dbc;}
+
+.color-4{background:#94b6df;}
+
+.color-5{background:#b7cdea;}
+
+.color-6{background:#d9dde2;}
+
+/*==============================
+=          MENSAJE             =
+==============================*/
+
+.dress-message{
+
+    margin-top:70px;
+
+}
+
+.dress-message p{
+
+    font-family:var(--font-script);
+
+    font-size:clamp(1.8rem,3vw,2.6rem);
+
+    color:var(--gold);
+
+}
+
+
+
+/*==========================================
+=          TABLET (481px - 900px)          =
+==========================================*/
+
+@media (min-width:481px) and (max-width:900px){
+
+    .dress-code{
+
+        padding:90px 25px;
+
+    }
+
+    .dress-container{
+
+        width:min(100%,720px);
+
+    }
+
+    /* Flores */
+
+    .dress-code::before,
+    .dress-code::after{
+
+        width:180px;
+
+        height:180px;
+
+        opacity:.12;
+
+    }
+
+    /* Encabezado */
+
+    .dress-title{
+
+        letter-spacing:6px;
+
+    }
+
+    .dress-divider{
+
+        margin:22px auto;
+
+    }
+
+    .dress-divider span{
+
+        width:65px;
+
+    }
+
+    .dress-type{
+
+        letter-spacing:6px;
+
+    }
+
+    /* Imagen */
+
+    .dress-image{
+
+        margin-top:45px;
+
+    }
+
+    .dress-image img{
+
+        width:min(100%,340px);
+
+    }
+
+    .dress-image::before{
+
+        width:80%;
+
+        filter:blur(22px);
+
+    }
+
+    /* Aviso */
+
+    .dress-warning{
+
+        width:min(100%,500px);
+
+        padding:20px 22px;
+
+        gap:15px;
+
+        margin-top:50px;
+
+    }
+
+    .warning-icon i{
+
+        font-size:1.8rem;
+
+    }
+
+    .warning-text h3{
+
+        font-size:1.3rem;
+
+    }
+
+    .warning-text p{
+
+        font-size:.95rem;
+
+    }
+
+    /* Paleta */
+
+    .dress-palette{
+
+        margin-top:55px;
+
+    }
+
+    .palette-title{
+
+        margin-bottom:28px;
+
+    }
+
+    .palette-colors{
+
+        gap:18px;
+
+    }
+
+    .color{
+
+        width:54px;
+
+    }
+
+    /* Mensaje */
+
+    .dress-message{
+
+        margin-top:55px;
+
+    }
+
+}
+
+
+
+/*==========================================
+=          MÓVIL (480px o menos)           =
+==========================================*/
+
+@media (max-width:480px){
+
+    .dress-code{
+
+        padding:70px 18px;
+
+    }
+
+    .dress-container{
+
+        width:100%;
+
+    }
+
+    /*==============================
+    =            FLORES            =
+    ==============================*/
+
+    .dress-code::before,
+    .dress-code::after{
+
+        width:120px;
+
+        height:120px;
+
+        opacity:.08;
+
+    }
+
+    .dress-code::before{
+
+        top:-15px;
+
+        left:-20px;
+
+    }
+
+    .dress-code::after{
+
+        right:-20px;
+
+        bottom:-15px;
+
+    }
+
+    /*==============================
+    =          ENCABEZADO          =
+    ==============================*/
+
+    .dress-subtitle{
+
+        line-height:1.1;
+
+    }
+
+    .dress-title{
+
+        margin-top:8px;
+
+        letter-spacing:4px;
+
+    }
+
+    .dress-divider{
+
+        gap:12px;
+
+        margin:20px auto;
+
+    }
+
+    .dress-divider span{
+
+        width:45px;
+
+    }
+
+    .dress-divider i{
+
+        font-size:.8rem;
+
+    }
+
+    .dress-type{
+
+        font-size:.82rem;
+
+        letter-spacing:4px;
+
+    }
+
+    /*==============================
+    =            IMAGEN            =
+    ==============================*/
+
+    .dress-image{
+
+        margin-top:35px;
+
+    }
+
+    .dress-image::before{
+
+        width:100%;
+
+        filter:blur(18px);
+
+    }
+
+    .dress-image img{
+
+        width:min(100%,260px);
+
+    }
+
+    /*==============================
+    =           AVISO              =
+    ==============================*/
+
+    .dress-warning{
+
+        margin-top:40px;
+
+        width:100%;
+
+        padding:18px;
+
+        gap:14px;
+
+        border-radius:16px;
+
+        text-align:left;
+
+    }
+
+    .warning-icon i{
+
+        font-size:1.6rem;
+
+    }
+
+    .warning-text h3{
+
+        font-size:1.15rem;
+
+        margin-bottom:4px;
+
+    }
+
+    .warning-text p{
+
+        font-size:.9rem;
+
+        line-height:1.5;
+
+    }
+
+    /*==============================
+    =           PALETA             =
+    ==============================*/
+
+    .dress-palette{
+
+        margin-top:45px;
+
+    }
+
+    .palette-title{
+
+        font-size:1.15rem;
+
+        line-height:1.4;
+
+        margin-bottom:25px;
+
+    }
+
+    .palette-colors{
+
+        gap:14px;
+
+    }
+
+    .color{
+
+        width:42px;
+
+        box-shadow:0 5px 12px rgba(0,0,0,.08);
+
+    }
+
+    .color:hover{
+
+        transform:none;
+
+    }
+
+    /*==============================
+    =           MENSAJE            =
+    ==============================*/
+
+    .dress-message{
+
+        margin-top:45px;
+
+        padding:0 12px;
+
+    }
+
+    .dress-message p{
+
+        line-height:1.4;
+
+    }
+
+}
+
+
+
+/*==========================================
+=      ANIMACIONES CÓDIGO DE VESTIMENTA    =
+==========================================*/
+
+/* Estado inicial */
+
+.dress-item{
+
+    opacity:0;
+
+    transform:translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+
+}
+
+/* Cuando aparece la sección */
+
+.reveal.visible .dress-item{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+/* Retrasos */
+
+.reveal.visible .dress-header{
+
+    transition-delay:.10s;
+
+}
+
+.reveal.visible .dress-image{
+
+    transition-delay:.35s;
+
+}
+
+.reveal.visible .dress-warning{
+
+    transition-delay:.60s;
+
+}
+
+.reveal.visible .dress-palette{
+
+    transition-delay:.85s;
+
+}
+
+.reveal.visible .dress-message{
+
+    transition-delay:1.10s;
+
+}
+
+
+
+
+/* Estado inicial */
+
+.palette-colors .color{
+
+    opacity:0;
+
+    transform:scale(.5);
+
+}
+
+/* Animación */
+
+.reveal.visible .palette-colors .color{
+
+    opacity:1;
+
+    transform:scale(1);
+
+    transition:
+        opacity .45s ease,
+        transform .45s ease;
+
+}
+
+.reveal.visible .palette-colors .color:nth-child(1){
+
+    transition-delay:1.05s;
+
+}
+
+.reveal.visible .palette-colors .color:nth-child(2){
+
+    transition-delay:1.15s;
+
+}
+
+.reveal.visible .palette-colors .color:nth-child(3){
+
+    transition-delay:1.25s;
+
+}
+
+.reveal.visible .palette-colors .color:nth-child(4){
+
+    transition-delay:1.35s;
+
+}
+
+.reveal.visible .palette-colors .color:nth-child(5){
+
+    transition-delay:1.45s;
+
+}
+
+.reveal.visible .palette-colors .color:nth-child(6){
+
+    transition-delay:1.55s;
+
+}
+
+
+
+/*======================================================
+=         CONFIRMACIÓN DE ASISTENCIA                  =
+======================================================*/
+
+.confirmation{
+
+    position:relative;
+
+    padding:130px 20px;
+
+    background:var(--cream);
+
+    overflow:hidden;
+
+}
+
+
+
+.confirmation-container{
+
+    width:min(900px,100%);
+
+    margin:auto;
+
+    text-align:center;
+
+}
+
+
+
+/*=====================================
+=            ENCABEZADO              =
+=====================================*/
+
+.confirmation-header{
+
+    margin-bottom:45px;
+
+}
+
+
+
+.confirmation-title{
+
+    font-family:var(--font-title);
+
+    font-size:clamp(2.8rem,5vw,4.3rem);
+
+    color:var(--gold);
+
+    font-weight:600;
+
+    line-height:1;
+
+    letter-spacing:2px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+.confirmation-subtitle{
+
+    margin-top:-10px;
+
+    font-family:var(--font-script);
+
+    font-size:clamp(2.4rem,4vw,3.6rem);
+
+    color:var(--black);
+
+}
+
+
+
+/*=====================================
+=            TEXTO                  =
+=====================================*/
+
+.confirmation-description{
+
+    max-width:720px;
+
+    margin:auto;
+
+}
+
+
+
+.confirmation-description p{
+
+    margin:0;
+
+    font-family:var(--font-title);
+
+    font-size:clamp(1.45rem,2vw,2rem);
+
+    color:var(--black);
+
+    line-height:1.55;
+
+}
+
+
+
+.confirmation-description p:last-child{
+
+    margin-top:14px;
+
+}
+
+
+
+/*=====================================
+=            BOTÓN                  =
+=====================================*/
+
+.confirmation-action{
+
+    margin-top:60px;
+
+}
+
+
+
+.confirmation-button{
+
+    position:relative;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:18px;
+
+    padding:18px 42px;
+
+    min-width:380px;
+
+    border:none;
+
+    border-radius:60px;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+
+    color:#fff;
+
+    overflow:hidden;
+
+    transition:.35s;
+
+    box-shadow:
+
+    0 10px 30px rgba(31,53,84,.18);
+
+}
+
+
+
+.confirmation-button:hover{
+
+    transform:translateY(-4px);
+
+    box-shadow:
+
+    0 20px 40px rgba(31,53,84,.28);
+
+}
+
+
+
+.confirmation-button:active{
+
+    transform:scale(.98);
+
+}
+
+
+
+.confirmation-button-icon{
+
+    width:54px;
+
+    height:54px;
+
+    border-radius:50%;
+
+    border:2px solid rgba(255,255,255,.45);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    flex-shrink:0;
+
+}
+
+
+
+.confirmation-button-text{
+
+    font-family:var(--font-title);
+
+    font-size:1.45rem;
+
+    letter-spacing:1px;
+
+    text-transform:uppercase;
+
+}
+
+
+
+/*=====================================
+=        EFECTO BRILLO INTERNO       =
+=====================================*/
+
+.confirmation-button::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    left:-130%;
+
+    width:60%;
+
+    height:100%;
+
+    background:
+
+    linear-gradient(
+
+        120deg,
+
+        transparent,
+
+        rgba(255,255,255,.45),
+
+        transparent
+
+    );
+
+
+
+    transform:skewX(-25deg);
+
+    transition:1s;
+
+}
+
+
+
+.confirmation-button:hover::before{
+
+    left:140%;
+
+}
+
+
+
+
+
+/*======================================================
+=      ANIMACIÓN PREMIUM DEL BOTÓN                    =
+======================================================*/
+
+/* Contenedor */
+
+.confirmation-action{
+
+    position:relative;
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+
+/* Onda 1 */
+
+.confirmation-action::before,
+
+.confirmation-action::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:50%;
+
+    left:50%;
+
+    width:340px;
+
+    height:72px;
+
+    border-radius:60px;
+
+    border:2px solid rgba(180,154,106,.35);
+
+    transform:translate(-50%,-50%) scale(.9);
+
+    opacity:0;
+
+    pointer-events:none;
+
+}
+
+
+
+/* Primera onda */
+.confirmation-action::before{
+
+    animation:confirmationWave 4s infinite;
+
+    animation-delay:1.3s;
+
+}
+
+.confirmation-action::after{
+
+    animation:confirmationWave 4s infinite 0.45s;
+
+    animation-delay:1.75s;
+
+}
+
+
+
+/* Botón */
+
+.confirmation-button{
+
+    animation:confirmationPulse 4s infinite;
+
+    animation-delay:1.3s;
+
+}
+
+
+
+/* Glow */
+
+.confirmation-button::after{
+
+    content:"";
+
+    position:absolute;
+
+    inset:0;
+
+    border-radius:60px;
+
+    box-shadow:
+
+        0 0 0 rgba(180,154,106,0);
+
+    animation:confirmationGlow 4s infinite;
+
+    animation-delay:1.3s;
+
+    pointer-events:none;
+
+}
+
+
+
+/*=====================================
+=            KEYFRAMES              =
+=====================================*/
+
+@keyframes confirmationPulse{
+
+    0%{
+
+        transform:scale(1);
+
+    }
+
+    8%{
+
+        transform:scale(1.02);
+
+    }
+
+    16%{
+
+        transform:scale(1);
+
+    }
+
+    100%{
+
+        transform:scale(1);
+
+    }
+
+}
+
+
+
+@keyframes confirmationGlow{
+
+    0%{
+
+        box-shadow:
+
+        0 0 0 rgba(180,154,106,0);
+
+    }
+
+    8%{
+
+        box-shadow:
+
+        0 0 18px rgba(180,154,106,.35),
+
+        0 0 35px rgba(180,154,106,.22);
+
+    }
+
+    16%{
+
+        box-shadow:
+
+        0 0 0 rgba(180,154,106,0);
+
+    }
+
+    100%{
+
+        box-shadow:
+
+        0 0 0 rgba(180,154,106,0);
+
+    }
+
+}
+
+
+
+@keyframes confirmationWave{
+
+    0%{
+
+        opacity:0;
+
+        transform:translate(-50%,-50%) scale(.92);
+
+    }
+
+    10%{
+
+        opacity:.45;
+
+    }
+
+    25%{
+
+        opacity:0;
+
+        transform:translate(-50%,-50%) scale(1.18);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:translate(-50%,-50%) scale(1.18);
+
+    }
+
+}
+
+
+/*======================================================
+=                MODAL CONFIRMACIÓN                   =
+======================================================*/
+
+/* Oculto por defecto */
+
+.confirmation-modal{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:20px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:.45s ease;
+
+    z-index:9999;
+
+}
+
+
+
+/* Cuando esté abierto */
+
+.confirmation-modal.active{
+
+    opacity:1;
+
+    visibility:visible;
+
+    pointer-events:auto;
+
+}
+
+
+
+/*=====================================
+=         FONDO OSCURO               =
+=====================================*/
+
+.confirmation-overlay{
+
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(20,24,32,.55);
+
+    backdrop-filter:blur(8px);
+
+    -webkit-backdrop-filter:blur(8px);
+
+}
+
+
+
+/*=====================================
+=            TARJETA                =
+=====================================*/
+
+.confirmation-dialog{
+
+    position:relative;
+
+    width:min(480px,95vw);
+
+    background:var(--cream);
+
+    border-radius:28px;
+
+    padding:55px 45px 40px;
+
+    box-shadow:
+
+        0 30px 70px rgba(0,0,0,.20);
+
+    border:1px solid rgba(180,154,106,.28);
+
+    text-align:center;
+
+    z-index:2;
+
+    transform:translateY(30px) scale(.94);
+
+    opacity:0;
+
+    transition:
+
+        transform .45s ease,
+
+        opacity .45s ease;
+
+}
+
+
+
+.confirmation-modal.active .confirmation-dialog{
+
+    transform:translateY(0) scale(1);
+
+    opacity:1;
+
+}
+
+
+
+/*=====================================
+=         BOTÓN CERRAR              =
+=====================================*/
+
+.confirmation-close{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:42px;
+
+    height:42px;
+
+    border:none;
+
+    border-radius:50%;
+
+    cursor:pointer;
+
+    background:#fff;
+
+    color:var(--navy);
+
+    font-size:1.6rem;
+
+    transition:.3s;
+
+    box-shadow:0 6px 16px rgba(0,0,0,.08);
+
+}
+
+
+
+.confirmation-close:hover{
+
+    background:var(--gold);
+
+    color:#fff;
+
+    transform:rotate(90deg);
+
+}
+
+
+
+/*=====================================
+=            ENCABEZADO             =
+=====================================*/
+
+.confirmation-modal-header h3{
+
+    margin:0;
+
+    font-family:var(--font-title);
+
+    font-size:2.4rem;
+
+    color:var(--gold);
+
+    letter-spacing:1px;
+
+}
+
+
+
+.confirmation-modal-header p{
+
+    margin-top:15px;
+
+    font-family:var(--font-body);
+
+    font-size:1rem;
+
+    line-height:1.7;
+
+    color:#5b6470;
+
+}
+
+
+
+/*=====================================
+=            FORMULARIO             =
+=====================================*/
+
+.confirmation-form{
+
+    margin-top:40px;
+
+}
+
+
+
+.confirmation-group{
+
+    text-align:left;
+
+}
+
+
+
+.confirmation-group label{
+
+    display:block;
+
+    margin-bottom:12px;
+
+    font-family:var(--font-body);
+
+    font-size:.95rem;
+
+    color:var(--navy);
+
+}
+
+
+
+/*=====================================
+=              INPUT               =
+=====================================*/
+
+.confirmation-group input{
+
+    width:100%;
+
+    padding:14px 0;
+
+    border:none;
+
+    border-bottom:2px solid rgba(31,53,84,.15);
+
+    background:transparent;
+
+    font-size:1rem;
+
+    font-family:var(--font-body);
+
+    color:var(--navy);
+
+    transition:.35s;
+
+}
+
+
+
+.confirmation-group input:focus{
+
+    outline:none;
+
+    border-color:var(--gold);
+
+}
+
+
+
+.confirmation-group input::placeholder{
+
+    color:#a8aeb6;
+
+}
+
+
+
+/*=====================================
+=             BOTÓN                =
+=====================================*/
+
+.confirmation-submit{
+
+    margin-top:40px;
+
+    width:100%;
+
+    height:58px;
+
+    border:none;
+
+    border-radius:50px;
+
+    cursor:pointer;
+
+    background:linear-gradient(135deg,var(--navy),var(--blue));
+
+    color:#fff;
+
+    font-family:var(--font-title);
+
+    font-size:1.2rem;
+
+    letter-spacing:1px;
+
+    transition:.35s;
+
+    box-shadow:
+
+        0 12px 28px rgba(31,53,84,.20);
+
+}
+
+
+
+.confirmation-submit:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+
+        0 20px 35px rgba(31,53,84,.28);
+
+}
+
+
+
+/*=====================================
+=          MENSAJE INFERIOR         =
+=====================================*/
+
+.confirmation-note{
+
+    margin-top:18px;
+
+    font-size:.88rem;
+
+    line-height:1.6;
+
+    color:#8b9097;
+
+    font-family:var(--font-body);
+
+}
+
+
+
+
+
+
+
+
+/*======================================================
+=          CONFIRMACIÓN - TABLET                      =
+======================================================*/
+
+@media (min-width:481px) and (max-width:900px){
+
+/*=====================================
+=            SECCIÓN                =
+=====================================*/
+
+.confirmation{
+
+    padding:100px 25px;
+
+}
+
+
+
+/*=====================================
+=          CONTENEDOR              =
+=====================================*/
+
+.confirmation-container{
+
+    width:min(720px,100%);
+
+}
+
+
+
+/*=====================================
+=          ENCABEZADO              =
+=====================================*/
+
+.confirmation-header{
+
+    margin-bottom:38px;
+
+}
+
+
+
+.confirmation-title{
+
+    font-size:clamp(2.5rem,6vw,3.5rem);
+
+}
+
+
+
+.confirmation-subtitle{
+
+    margin-top:-8px;
+
+    font-size:clamp(2rem,5vw,3rem);
+
+}
+
+
+
+/*=====================================
+=            TEXTO                 =
+=====================================*/
+
+.confirmation-description{
+
+    max-width:620px;
+
+}
+
+
+
+.confirmation-description p{
+
+    font-size:1.35rem;
+
+    line-height:1.65;
+
+}
+
+
+
+/*=====================================
+=            BOTÓN                 =
+=====================================*/
+
+.confirmation-action{
+
+    margin-top:50px;
+
+}
+
+
+
+.confirmation-button{
+
+    min-width:320px;
+
+    padding:16px 34px;
+
+    gap:15px;
+
+}
+
+
+
+.confirmation-button-icon{
+
+    width:48px;
+
+    height:48px;
+
+}
+
+
+
+.confirmation-button-text{
+
+    font-size:1.25rem;
+
+}
+
+
+
+/* Ondas */
+
+.confirmation-action::before,
+
+.confirmation-action::after{
+
+    width:300px;
+
+    height:66px;
+
+}
+
+
+
+/*=====================================
+=             MODAL                =
+=====================================*/
+
+.confirmation-dialog{
+
+    width:min(430px,92vw);
+
+    padding:48px 34px 34px;
+
+}
+
+
+
+.confirmation-modal-header h3{
+
+    font-size:2.1rem;
+
+}
+
+
+
+.confirmation-modal-header p{
+
+    font-size:.96rem;
+
+}
+
+
+
+.confirmation-group label{
+
+    font-size:.92rem;
+
+}
+
+
+
+.confirmation-group input{
+
+    font-size:1rem;
+
+    padding:12px 0;
+
+}
+
+
+
+.confirmation-submit{
+
+    height:54px;
+
+    font-size:1.1rem;
+
+}
+
+
+
+.confirmation-note{
+
+    font-size:.82rem;
+
+    line-height:1.55;
+
+}
+
+}
+
+
+
+
+
+/*======================================================
+=          CONFIRMACIÓN - MÓVIL                       =
+======================================================*/
+
+@media (max-width:480px){
+
+/*=====================================
+=            SECCIÓN                =
+=====================================*/
+
+.confirmation{
+
+    padding:80px 20px;
+
+}
+
+
+
+/*=====================================
+=          CONTENEDOR              =
+=====================================*/
+
+.confirmation-container{
+
+    width:100%;
+
+}
+
+
+
+/*=====================================
+=          ENCABEZADO              =
+=====================================*/
+
+.confirmation-header{
+
+    margin-bottom:30px;
+
+}
+
+
+
+.confirmation-title{
+
+    font-size:clamp(2rem,10vw,2.8rem);
+
+    letter-spacing:1px;
+
+}
+
+
+
+.confirmation-subtitle{
+
+    margin-top:-5px;
+
+    font-size:clamp(2rem,9vw,2.8rem);
+
+}
+
+
+
+/*=====================================
+=            TEXTO                 =
+=====================================*/
+
+.confirmation-description{
+
+    width:100%;
+
+}
+
+
+
+.confirmation-description p{
+
+    font-size:1.15rem;
+
+    line-height:1.7;
+
+}
+
+
+
+/*=====================================
+=            BOTÓN                 =
+=====================================*/
+
+.confirmation-action{
+
+    margin-top:45px;
+
+}
+
+
+
+.confirmation-button{
+
+    width:100%;
+
+    min-width:unset;
+
+    padding:16px 22px;
+
+    gap:14px;
+
+}
+
+
+
+.confirmation-button-icon{
+
+    width:46px;
+
+    height:46px;
+
+}
+
+
+
+.confirmation-button-text{
+
+    font-size:1.05rem;
+
+    letter-spacing:.5px;
+
+}
+
+
+
+/*=====================================
+=            ONDAS                 =
+=====================================*/
+
+.confirmation-action::before,
+
+.confirmation-action::after{
+
+    width:94%;
+
+    max-width:320px;
+
+    height:68px;
+
+}
+
+
+
+/*=====================================
+=             MODAL                =
+=====================================*/
+
+.confirmation-dialog{
+
+    width:100%;
+
+    max-width:380px;
+
+    border-radius:24px;
+
+    padding:42px 24px 30px;
+
+}
+
+
+
+/*=====================================
+=          BOTÓN CERRAR            =
+=====================================*/
+
+.confirmation-close{
+
+    width:38px;
+
+    height:38px;
+
+    top:14px;
+
+    right:14px;
+
+    font-size:1.4rem;
+
+}
+
+
+
+/*=====================================
+=          ENCABEZADO              =
+=====================================*/
+
+.confirmation-modal-header h3{
+
+    font-size:1.9rem;
+
+}
+
+
+
+.confirmation-modal-header p{
+
+    margin-top:12px;
+
+    font-size:.95rem;
+
+    line-height:1.6;
+
+}
+
+
+
+/*=====================================
+=           FORMULARIO             =
+=====================================*/
+
+.confirmation-form{
+
+    margin-top:30px;
+
+}
+
+
+
+.confirmation-group label{
+
+    font-size:.9rem;
+
+}
+
+
+
+.confirmation-group input{
+
+    padding:14px 0;
+
+    font-size:1rem;
+
+}
+
+
+
+/*=====================================
+=            BOTÓN                 =
+=====================================*/
+
+.confirmation-submit{
+
+    margin-top:34px;
+
+    height:56px;
+
+    font-size:1.05rem;
+
+}
+
+
+
+/*=====================================
+=         MENSAJE INFERIOR         =
+=====================================*/
+
+.confirmation-note{
+
+    margin-top:15px;
+
+    font-size:.8rem;
+
+    line-height:1.6;
+
+}
+
+}
+
+
+
+/*======================================================
+=       ANIMACIÓN DE APARICIÓN                       =
+======================================================*/
+
+/* Estado inicial */
+
+.confirmation-item{
+
+    opacity:0;
+
+    transform:translateY(45px);
+
+    transition:
+
+        opacity .9s ease,
+
+        transform .9s ease;
+
+}
+
+
+
+/* Cuando entra en pantalla */
+
+.confirmation.visible .confirmation-item{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
+
+
+/*=====================================
+=          RETARDOS                 =
+=====================================*/
+
+.confirmation.visible .confirmation-item:nth-child(1){
+
+    transition-delay:.15s;
+
+}
+
+.confirmation.visible .confirmation-item:nth-child(2){
+
+    transition-delay:.35s;
+
+}
+
+.confirmation.visible .confirmation-item:nth-child(3){
+
+    transition-delay:.55s;
+
+}
+
+
+
+
+
+/* =========================================================
+   LLUVIA DE PÉTALOS
+   Se activa cuando el usuario hace clic en la pantalla
+   Colores: rosa y azul
+========================================================= */
+
+#petalos-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+
+    pointer-events: none;
+
+    overflow: hidden;
+
+    z-index: 9999;
+
+    opacity: 0;
+
+    transition: opacity 0.8s ease;
+}
+
+
+/* =========================================================
+   ACTIVAR LLUVIA DE PÉTALOS
+========================================================= */
+
+#petalos-container.activo {
+    opacity: 1;
+}
+
+
+/* =========================================================
+   PÉTALO
+========================================================= */
+
+.petalo {
+    position: absolute;
+
+    top: -60px;
+
+    width: 18px;
+    height: 28px;
+
+    border-radius: 70% 30% 70% 30%;
+
+    opacity: 0.60;
+
+    animation-name: caerPetalo;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+
+    filter: blur(0.2px);
+
+    --escala-petalo: 1;
+}
+
+
+/* =========================================================
+   PÉTALOS ROSAS
+========================================================= */
+
+.petalo.rosa {
+    background: linear-gradient(
+        135deg,
+        #ffb6d9,
+        #ff69a8
+    );
+
+    box-shadow:
+        0 0 8px rgba(255, 105, 168, 0.35);
+}
+
+
+/* =========================================================
+   PÉTALOS AZULES
+========================================================= */
+
+.petalo.azul {
+    background: linear-gradient(
+        135deg,
+        #b9e9ff,
+        #5bbcff
+    );
+
+    box-shadow:
+        0 0 8px rgba(91, 188, 255, 0.35);
+}
+
+
+/* =========================================================
+   ANIMACIÓN DE CAÍDA
+========================================================= */
+
+@keyframes caerPetalo {
+
+    0% {
+        transform:
+            translate3d(0, -60px, 0)
+            rotate(0deg);
+
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.65;
+    }
+
+    25% {
+        transform:
+            translate3d(30px, 25vh, 0)
+            rotate(90deg);
+    }
+
+    50% {
+        transform:
+            translate3d(-40px, 50vh, 0)
+            rotate(180deg);
+    }
+
+    75% {
+        transform:
+            translate3d(40px, 75vh, 0)
+            rotate(270deg);
+    }
+
+    90% {
+        opacity: 0.65;
+    }
+
+    100% {
+        transform:
+            translate3d(-20px, 110vh, 0)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================================================
+   AJUSTES PARA CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .petalo {
+        width: 14px;
+        height: 22px;
+    }
+
+}
+
+
+
+
+
+
+/* =========================================================
+   ANILLO DE BODA
+========================================================= */
+
+.anillo {
+    position: absolute;
+
+    top: -80px;
+
+    width: 26px;
+    height: 26px;
+
+    /*
+        Aro del anillo
+    */
+
+    border: 4px solid rgba(
+        220,
+        190,
+        120,
+        0.65
+    );
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    box-shadow:
+        0 0 6px rgba(
+            255,
+            220,
+            150,
+            0.25
+        );
+
+    pointer-events: none;
+
+    opacity: 0.85;
+
+    animation-name:
+        caerAnillo;
+
+    animation-timing-function:
+        linear;
+
+    animation-iteration-count:
+        infinite;
+}
+
+
+/* =========================================================
+   DIAMANTE DEL ANILLO
+========================================================= */
+
+.anillo::before {
+
+    content: "";
+
+    position: absolute;
+
+    /*
+        Colocamos el diamante
+        encima del aro.
+    */
+
+    top: -13px;
+
+    left: 50%;
+
+    width: 11px;
+
+    height: 11px;
+
+    /*
+        Centramos el diamante.
+    */
+
+    transform:
+        translateX(-50%)
+        rotate(45deg);
+
+    /*
+        Color tipo diamante.
+    */
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255, 255, 255, 1),
+            rgba(210, 240, 255, 0.95)
+        );
+
+    /*
+        Borde ligeramente dorado.
+    */
+
+    border:
+        2px solid rgba(
+            220,
+            190,
+            120,
+            0.95
+        );
+
+    /*
+        Brillo.
+    */
+
+    box-shadow:
+        0 0 7px rgba(
+            255,
+            255,
+            255,
+            0.75
+        );
+
+}
+
+
+/* =========================================================
+   PEQUEÑO BRILLO DEL DIAMANTE
+========================================================= */
+
+.anillo::after {
+
+    content: "✦";
+
+    position: absolute;
+
+    top: -19px;
+
+    left: 50%;
+
+    transform:
+        translateX(-50%);
+
+    font-size: 9px;
+
+    color:
+        rgba(
+            255,
+            255,
+            255,
+            1
+        );
+
+    text-shadow:
+        0 0 5px
+        rgba(
+            255,
+            255,
+            255,
+            0.9
+        );
+
+}
+
+
+/* =========================================================
+   ANIMACIÓN DEL ANILLO
+========================================================= */
+
+@keyframes caerAnillo {
+
+    0% {
+
+        transform:
+            translate3d(
+                0,
+                -80px,
+                0
+            )
+            rotate(0deg);
+
+        opacity: 0;
+
+    }
+
+
+    10% {
+
+        opacity: 0.60;
+
+    }
+
+
+    25% {
+
+        transform:
+            translate3d(
+                35px,
+                25vh,
+                0
+            )
+            rotate(120deg);
+
+    }
+
+
+    50% {
+
+        transform:
+            translate3d(
+                -35px,
+                50vh,
+                0
+            )
+            rotate(240deg);
+
+    }
+
+
+    75% {
+
+        transform:
+            translate3d(
+                35px,
+                75vh,
+                0
+            )
+            rotate(360deg);
+
+    }
+
+
+    90% {
+
+        opacity: 0.60;
+
+    }
+
+
+    100% {
+
+        transform:
+            translate3d(
+                -25px,
+                110vh,
+                0
+            )
+            rotate(480deg);
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =========================================================
+   AJUSTES PARA CELULAR
+========================================================= */
+
+@media (max-width: 768px) {
+
+    .anillo {
+
+        width: 21px;
+
+        height: 21px;
+
+        border-width: 3px;
+
+    }
+
+
+    .anillo::before {
+
+        width: 9px;
+
+        height: 9px;
+
+        border-width: 1.5px;
+
+    }
+
+
+    .anillo::after {
+
+        font-size: 7px;
+
+        top: -16px;
+
+    }
+
+}

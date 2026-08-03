@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta 
+        name="viewport" 
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta 
+        name="description" 
+        content="Nuestra boda - Una historia de amor que queremos compartir contigo"
+    >
+
+    <title>Iridia & José Antonio | Nuestra Boda</title>
+
+    <link
+    rel="preload"
+    href="img/novia.png"
+    as="image">
+
+<link
+    rel="preload"
+    href="img/novio.png"
+    as="image">
+
+
+
+    <!-- =========================================
+         GOOGLE FONTS
+    ========================================== -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link 
+        rel="preconnect" 
+        href="https://fonts.gstatic.com" 
+        crossorigin
+    >
+
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" 
+        rel="stylesheet"
+    >
+
+
+    <!-- =========================================
+         CSS
+    ========================================== -->
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- CONTENEDOR PARA LA LLUVIA DE PÉTALOS -->
+<div id="petalos-container"></div>
+
+
+
+
+    <!-- =========================================
+     AVISO DE ORIENTACIÓN
+========================================= -->
+
+<div id="rotate-device">
+
+    <div class="rotate-box">
+
+        <div class="rotate-icon">📱</div>
+
+        <h2>Gira tu dispositivo</h2>
+
+        <p>Para disfrutar mejor esta invitación, coloca tu teléfono en posición vertical.</p>
+
+    </div>
+
+</div>
+
+
+
+
+
+
+
+    <!-- =========================================
+         PANTALLA DE CARGA
+
+         El JavaScript hará que permanezca
+         visible durante 6 segundos.
+    ========================================== -->
+
+    <div id="loader" class="loader">
+
+        <div class="loader-content">
+
+
+            <!-- Anillos decorativos -->
+
+            <div class="loader-rings">
+
+                <span class="loader-ring loader-ring-one"></span>
+
+                <span class="loader-ring loader-ring-two"></span>
+
+            </div>
+
+
+            <!-- Texto de carga -->
+
+            <p class="loader-text">
+
+                Nuestra historia comienza...
+
+            </p>
+
+
+            <!-- Línea decorativa -->
+<!-- =========================================
+     ESCENA DE NOVIOS CARGANDO
+========================================= -->
+
+
+<div class="wedding-loader-scene">
+
+
+
+    <!-- Partículas ambientales -->
+
+    <div class="scene-particles"></div>
+
+
+
+
+
+    <!-- Pétalos flotando -->
+
+    <div class="flower-petals">
+
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+        <span></span>
+
+
+    </div>
+
+
+
+
+
+
+    <!-- Camino de carga -->
+
+    <div class="loader-road">
+
+        <div class="loader-road-fill"></div>
+
+    </div>
+
+
+
+   <!-- =========================
+     NOVIA
+========================= -->
+
+<img
+    src="img/novia.png"
+    alt="Novia"
+    class="loader-character bride"
+    draggable="false"
+    fetchpriority="high"
+    decoding="sync"
+>
+
+
+
+<!-- =========================
+     NOVIO
+========================= -->
+
+<img
+    src="img/novio.png"
+    alt="Novio"
+    class="loader-character groom"
+    draggable="false"
+    fetchpriority="high"
+    decoding="sync"
+>
+
+
+
+
+
+
+<!-- =========================
+     PUNTO DE ENCUENTRO
+========================= -->
+
+<div class="meeting-point">
+
+    <div class="loader-heart">
+
+        ❤
+
+    </div>
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+        </div>
+
+        <!-- =========================================
+     MENSAJE PARA COMENZAR LA EXPERIENCIA
+========================================= -->
+
+<div class="loader-start-screen" id="loaderStartScreen">
+
+    <div class="loader-start-content">
+
+        <div class="loader-start-heart">
+            ❤
+        </div>
+
+        <h2>
+            Toca cualquier parte
+            <br>
+            de la pantalla
+        </h2>
+
+        <p>
+            para comenzar nuestra historia
+        </p>
+
+    </div>
+
+</div>
+
+    </div>
+
+
+
+    <!-- =========================================
+         AUDIO DE FONDO
+
+         El botón de música fue eliminado.
+
+         JavaScript intentará reproducir
+         automáticamente la música 6 segundos
+         después de entrar a la página.
+    ========================================== -->
+
+    <audio
+    id="backgroundMusic"
+    preload="metadata"
+    playsinline
+    loop
+>
+
+        <source 
+            src="audio/musica.mp3" 
+            type="audio/mpeg"
+        >
+
+    </audio>
+
+
+
+    <!-- =========================================
+         HERO / PORTADA PRINCIPAL
+    ========================================== -->
+
+    <header class="hero">
+
+
+        <!-- Imagen de fondo -->
+
+        <div class="hero-background"></div>
+
+
+        <!-- Capa oscura -->
+
+        <div class="hero-overlay"></div>
+
+
+        <!-- Capa adicional para mejorar
+             el contraste de las letras -->
+
+        <div class="hero-gradient"></div>
+
+
+        <!-- Contenido principal -->
+
+        <div class="hero-content">
+
+
+            <!-- Texto superior -->
+
+            <p class="hero-small-text">
+
+                ESTAMOS FELICES DE COMPARTIR
+
+            </p>
+
+
+            <!-- Nombres de los novios -->
+
+            <h1 class="couple-names">
+
+
+                <span class="name-first">
+
+                    Iridia
+
+                </span>
+
+
+                <span class="ampersand">
+
+                    &
+
+                </span>
+
+
+                <span class="name-second">
+
+                    José Antonio
+
+                </span>
+
+
+            </h1>
+
+
+            <!-- Separador -->
+
+            <div class="hero-divider">
+
+                <span></span>
+
+                <i>♥</i>
+
+                <span></span>
+
+            </div>
+
+
+            <!-- Fecha correcta -->
+
+            <p class="wedding-date">
+
+                02 · 01 · 2027
+
+            </p>
+
+
+            <!-- Mensaje -->
+
+            <p class="hero-message">
+
+                ¡Nos casamos!
+
+            </p>
+
+
+            <!-- Enlace a la invitación -->
+
+            <a 
+                href="#countdown" 
+                class="scroll-button"
+            >
+
+                <span>
+
+                    DESCUBRE NUESTRA HISTORIA
+
+                </span>
+
+
+                <strong>
+
+                    ↓
+
+                </strong>
+
+            </a>
+
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================
+         INVITACIÓN + FECHA + CUENTA REGRESIVA
+
+         Diseño basado en la imagen de referencia.
+    ========================================== -->
+
+    <section 
+        id="countdown" 
+        class="countdown-section"
+    >
+
+
+        <div class="invitation-container">
+
+
+
+            <!-- =================================
+     HERRADURA DECORATIVA
+================================== -->
+
+<div class="horseshoe-decoration">
+
+    <img
+        src="img/herradura.png"
+        alt="Iniciales de los novios"
+        class="horseshoe-image"
+        draggable="false"
+    >
+
+</div>
+
+
+            <!-- =================================
+                 TEXTO DE INVITACIÓN
+            ================================== -->
+
+            <h2 class="invitation-title">
+
+                Tenemos el agrado de invitarles
+
+                <br>
+
+                a Nuestra Boda Civil
+
+            </h2>
+
+
+
+            <!-- =================================
+                 MES
+            ================================== -->
+
+            <div class="wedding-month">
+
+                ENERO
+
+            </div>
+
+
+
+            <!-- =================================
+                 FECHA
+
+                 SÁBADO | 02 | 2027
+            ================================== -->
+
+            <div class="date-layout">
+
+
+                <!-- IZQUIERDA -->
+
+                <div class="date-side date-left">
+
+                    <div class="date-line"></div>
+
+                    <span>
+
+                        SÁBADO
+
+                    </span>
+
+                    <div class="date-line"></div>
+
+                </div>
+
+
+
+                <!-- DÍA -->
+
+                <div class="date-number">
+
+                    02
+
+                </div>
+
+
+
+                <!-- DERECHA -->
+
+                <div class="date-side date-right">
+
+                    <div class="date-line"></div>
+
+                    <span>
+
+                        2027
+
+                    </span>
+
+                    <div class="date-line"></div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================
+                 CUENTA REGRESIVA
+            ================================== -->
+
+            <div class="countdown-wrapper">
+
+
+                <!-- Texto FALTAN -->
+
+                <div class="countdown-title">
+
+                    Faltan
+
+                </div>
+
+
+
+                <!-- NÚMEROS -->
+
+                <div class="countdown">
+
+
+                    <!-- DÍAS -->
+
+                    <div class="countdown-item">
+
+
+                        <span 
+                            id="days" 
+                            class="count-number"
+                        >
+
+                            00
+
+                        </span>
+
+
+                        <span class="count-label">
+
+                            DÍAS
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- HORAS -->
+
+                    <div class="countdown-item">
+
+
+                        <span 
+                            id="hours" 
+                            class="count-number"
+                        >
+
+                            00
+
+                        </span>
+
+
+                        <span class="count-label">
+
+                            HORAS
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- MINUTOS -->
+
+                    <div class="countdown-item">
+
+
+                        <span 
+                            id="minutes" 
+                            class="count-number"
+                        >
+
+                            00
+
+                        </span>
+
+
+                        <span class="count-label">
+
+                            MINUTOS
+
+                        </span>
+
+
+                    </div>
+
+
+
+                    <!-- SEGUNDOS -->
+
+                    <div class="countdown-item">
+
+
+                        <span 
+                            id="seconds" 
+                            class="count-number"
+                        >
+
+                            00
+
+                        </span>
+
+
+                        <span class="count-label">
+
+                            SEGUNDOS
+
+                        </span>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+
+
+<!-- ===================================================== -->
+<!-- DIVISOR DECORATIVO -->
+<!-- ===================================================== -->
+
+<div class="section-divider">
+
+    <span></span>
+
+    <svg class="divider-icon"
+         viewBox="0 0 120 40"
+         xmlns="http://www.w3.org/2000/svg"
+         fill="none">
+
+        <path d="M10 20
+                 C20 8 35 8 45 20
+                 C55 32 65 32 75 20
+                 C85 8 100 8 110 20"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"/>
+
+        <circle cx="60" cy="20" r="3" fill="currentColor"/>
+
+        <path d="M55 16
+                 C52 11 48 10 45 11"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"/>
+
+        <path d="M65 16
+                 C68 11 72 10 75 11"
+              stroke="currentColor"
+              stroke-width="1.4"
+              stroke-linecap="round"/>
+
+    </svg>
+
+    <span></span>
+
+</div>
+
+<!-- ===================================================== -->
+<!-- EVENTOS -->
+<!-- ===================================================== -->
+
+<section class="events reveal">
+
+    <article class="event-card">
+
+        <!-- Ícono -->
+
+        <div class="event-icon reveal-item">
+
+            <svg viewBox="0 0 128 128"
+                 xmlns="http://www.w3.org/2000/svg"
+                 fill="none">
+
+                <g stroke="currentColor"
+                   stroke-width="2.2"
+                   stroke-linecap="round"
+                   stroke-linejoin="round">
+
+                    <!-- Casa -->
+                    <path d="M24 55L64 20L104 55"/>
+                    <path d="M32 54V98H96V54"/>
+                    <path d="M49 98V64H79V98"/>
+                    <path d="M54 36H74"/>
+                    <circle cx="64" cy="45" r="5"/>
+
+                    <!-- Escalones -->
+                    <path d="M47 98H81"/>
+                    <path d="M44 103H84"/>
+                    <path d="M41 108H87"/>
+
+                    <!-- Flores izquierda -->
+                    <circle cx="18" cy="74" r="4"/>
+                    <circle cx="18" cy="66" r="4"/>
+                    <circle cx="11" cy="70" r="4"/>
+                    <circle cx="25" cy="70" r="4"/>
+                    <circle cx="18" cy="70" r="2"/>
+
+                    <path d="M21 74L31 92"/>
+                    <path d="M18 74L18 92"/>
+                    <path d="M18 92C18 92 26 86 34 88"/>
+
+                    <!-- Flores derecha -->
+                    <circle cx="110" cy="74" r="4"/>
+                    <circle cx="110" cy="66" r="4"/>
+                    <circle cx="103" cy="70" r="4"/>
+                    <circle cx="117" cy="70" r="4"/>
+                    <circle cx="110" cy="70" r="2"/>
+
+                    <path d="M107 74L97 92"/>
+                    <path d="M110 74L110 92"/>
+                    <path d="M110 92C110 92 102 86 94 88"/>
+
+                    <!-- Planta inferior -->
+                    <path d="M36 101C29 92 24 90 18 93"/>
+                    <path d="M92 101C99 92 104 90 110 93"/>
+                    <path d="M12 109H116"/>
+
+                </g>
+
+            </svg>
+
+        </div>
+
+        <!-- Título -->
+
+        <h2 class="event-title reveal-item">
+            Ceremonia - Recepción
+        </h2>
+
+        <!-- Hora -->
+
+        <p class="event-time reveal-item">
+            Hora: PENDIENTE
+        </p>
+
+        <!-- Dirección -->
+
+        <p class="event-address reveal-item">
+            Hidalgo Sur<br>
+            Quinta Kimmy
+        </p>
+
+        <!-- Botón -->
+
+        <a href="https://maps.app.goo.gl/mCtakWG5DrJ3hnyk8?g_st=iw"
+           class="event-button reveal-item"
+           target="_blank"
+           rel="noopener">
+
+            <span class="event-button-icon">
+                📍
+            </span>
+
+            <span>
+                Ver ubicación
+            </span>
+
+        </a>
+
+    </article>
+
+</section>
+
+
+
+
+
+
+<!--==========================================
+=          CÓDIGO DE VESTIMENTA             =
+===========================================-->
+
+<section class="dress-code reveal" id="dress-code">
+
+    <div class="dress-container">
+
+        <!-- Encabezado -->
+        <div class="dress-header dress-item">
+
+            <p class="dress-subtitle">
+                Código de
+            </p>
+
+            <h2 class="dress-title">
+                VESTIMENTA
+            </h2>
+
+            <div class="dress-divider">
+
+                <span></span>
+
+                <i class="fa-solid fa-heart"></i>
+
+                <span></span>
+
+            </div>
+
+            <p class="dress-type">
+                Semi Formal
+            </p>
+
+        </div>
+
+        <!-- Imagen principal -->
+        <div class="dress-image dress-item">
+
+            <div class="dress-image-wrapper">
+
+                <img src="img/novios.png"
+                     alt="Código de vestimenta">
+
+            </div>
+
+        </div>
+
+        <!-- Aviso importante -->
+        <div class="dress-warning dress-item">
+
+            <div class="warning-icon">
+
+                <i class="fa-solid fa-circle-xmark"></i>
+
+            </div>
+
+            <div class="warning-text">
+
+                <h3>
+                    Evitar el color blanco
+                </h3>
+
+                <p>
+                    Reservado exclusivamente para la novia.
+                </p>
+
+            </div>
+
+        </div>
+
+        <!-- Paleta de colores -->
+        <div class="dress-palette dress-item">
+
+            <h3 class="palette-title">
+                Te sugerimos esta paleta de colores
+            </h3>
+
+            <div class="palette-colors">
+
+                <span class="color color-1"></span>
+
+                <span class="color color-2"></span>
+
+                <span class="color color-3"></span>
+
+                <span class="color color-4"></span>
+
+                <span class="color color-5"></span>
+
+                <span class="color color-6"></span>
+
+            </div>
+
+        </div>
+
+        <!-- Mensaje -->
+        <div class="dress-message dress-item">
+
+            <p>
+                Gracias por ser parte de este día tan especial.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+
+
+
+<!--======================================================
+=            CONFIRMACIÓN DE ASISTENCIA                 =
+=======================================================-->
+
+<section class="confirmation reveal" id="confirmacion">
+
+    <div class="confirmation-container">
+
+        <!-- Encabezado -->
+
+        <div class="confirmation-header confirmation-item">
+
+            <h2 class="confirmation-title">
+
+                Confirmación
+
+            </h2>
+
+            <p class="confirmation-subtitle">
+
+                de asistencia
+
+            </p>
+
+        </div>
+
+
+        <!-- Descripción -->
+
+        <div class="confirmation-description confirmation-item">
+
+            <p>
+
+                ¡Queremos compartir este momento tan esperado contigo!
+
+            </p>
+
+            <p>
+
+                Por favor ayúdanos confirmando tu asistencia.
+
+            </p>
+
+        </div>
+
+
+        <!-- Botón -->
+
+        <div class="confirmation-action confirmation-item">
+
+            <button
+                id="openConfirmationModal"
+                class="confirmation-button"
+                type="button">
+
+                <span class="confirmation-button-icon">
+
+                    <!-- El SVG se agregará después -->
+
+                </span>
+
+                <span class="confirmation-button-text">
+
+                    Confirmar asistencia
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!--======================================================
+=                MODAL CONFIRMACIÓN                     =
+=======================================================-->
+
+<div
+    class="confirmation-modal"
+    id="confirmationModal"
+    aria-hidden="true">
+
+    <!-- Fondo oscuro -->
+
+    <div
+        class="confirmation-overlay"
+        id="closeConfirmationModal">
+    </div>
+
+
+
+    <!-- Ventana -->
+
+    <div
+        class="confirmation-dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="confirmationModalTitle">
+
+
+
+        <!-- Botón cerrar -->
+
+        <button
+            class="confirmation-close"
+            id="closeModalButton"
+            type="button"
+            aria-label="Cerrar">
+
+            ×
+
+        </button>
+
+
+
+        <!-- Encabezado -->
+
+        <div class="confirmation-modal-header">
+
+            <h3 id="confirmationModalTitle">
+
+                Confirmar asistencia
+
+            </h3>
+
+            <p>
+
+                Nos encantará compartir este día tan especial contigo.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- Formulario -->
+
+        <form
+            id="confirmationForm"
+            class="confirmation-form">
+
+            <!-- Nombre -->
+
+            <div class="confirmation-group">
+
+                <label for="guestName">
+
+                    Nombre completo
+
+                </label>
+
+                <input
+                    type="text"
+                    id="guestName"
+                    name="guestName"
+                    placeholder="Escribe tu nombre"
+                    autocomplete="name"
+                    maxlength="70"
+                    required>
+
+            </div>
+
+
+
+            <!-- Botón -->
+
+            <button
+                type="submit"
+                id="sendConfirmation"
+                class="confirmation-submit">
+
+                Confirmar asistencia
+
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================== -->
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
